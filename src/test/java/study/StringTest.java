@@ -21,4 +21,11 @@ public class StringTest {
         assertThat(stringNumberArray).containsExactly("1", "2", "3");
         assertThat(stringOneArray).contains("1");
     }
+
+    @Test
+    void subString() {
+        String str = "(1,2)";
+        String substring = str.substring(1, str.length() - 1);
+        assertThat(substring).isEqualTo("1,2");
+    }
 }
