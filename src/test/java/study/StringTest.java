@@ -1,8 +1,10 @@
 package study;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringTest {
     @Test
@@ -27,5 +29,14 @@ public class StringTest {
         String str = "(1,2)";
         String substring = str.substring(1, str.length() - 1);
         assertThat(substring).isEqualTo("1,2");
+    }
+
+    @Test
+    @DisplayName("특정 위치의 문자열 가져오기")
+    void charAt() {
+        String abc = "abc";
+        assertThatThrownBy(() -> {
+            char c = abc.charAt(5);
+        }).isInstanceOf(StringIndexOutOfBoundsException.class);
     }
 }
